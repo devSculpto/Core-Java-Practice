@@ -69,8 +69,8 @@ public class Patterns {
 //    -------------------------------------------------------------
     public static void main(String[] args) {
 //        Butter Fly Star Pattern :
-//        ptrn1(4);
+        ptrn1(4);
 //        Diamond Pattern :
-//        ptrn2(7);
+        ptrn2(7);
     }
 }
