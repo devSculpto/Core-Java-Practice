@@ -43,6 +43,7 @@ public class program {
          System.out.println("Second Largest : " + secondLargest);
     }
 
+
     public static void count(int []arr) {
         int post = 0;
         int neg = 0;
@@ -71,6 +72,9 @@ public class program {
          System.out.println(arr[i] + " repeated " + co + " times");
        }
     }
+    
+
+
     public static void count(int []arr, int factor){
             int co = 0;
        for(int i = 0; i < arr.length;i++){
@@ -101,6 +105,110 @@ public class program {
             right--;
          }
     }
+
+    public static void rotationRight(int []arr, int k){
+        int n = arr.length;
+        int []newArr = new int[n];
+        int j = 0;
+        for(int i = n - k; i < n; i++){
+            newArr[j] = arr[i];  // 0 1 2 filled,3 4 5 6 empty  
+            j++; 
+        }
+        for(int i = 0; i < n - k; i++){
+            newArr[j] = arr[i];
+            j++;
+        }
+    } 
+    public static void rotationLeft(int []arr, int k){
+        int n = arr.length;
+        int []newArr = new int[n];
+        int j = 0;
+        for(int i = k; i < arr.length; i++){
+            newArr[j] = arr[i];
+            j++;
+        }
+
+        for(int i = 0 ; i < k; i++){
+            newArr[j] = arr[i];
+            j++;
+        }
+
+        for(int e : newArr) {
+            System.out.println(e);
+        }
+    }
+    public static void zeroToEnd(int []arr) {
+        int []newArr = new int[arr.length]; //8,4,0,1,1,0,0,5,3
+        int j = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == 0) continue;
+            newArr[j] = arr[i];//8,4,1,1,5,3    0 0 0
+            j++; // j = 6
+        }
+        for(int k = j; k < newArr.length; k++){
+                newArr[k] = 0;
+        }
+        for(int e : newArr) {
+            System.out.println(e);
+        }
+
+    }
+
+    public static void separation(int []arr){
+
+        int []newArr = new int[arr.length];
+        int j = 0;
+        for(int i = 0 ; i < arr.length; i++){
+            if(arr[i] > 0) {
+             newArr[j] = arr[i];
+             j++;
+            }
+        }
+        for(int i = 0 ; i < arr.length; i++){
+            if(arr[i] < 0) {
+             newArr[j] = arr[i];
+             j++;
+            }
+        }
+        for(int e : newArr) {
+            System.out.println(e);
+        }
+    }
+
+    // public static void isSorted(int []arr){
+    //     boolean isSort = true;
+    //     for(int i = 0; i < arr.length - 1; i++){
+    //         if(arr[i] > arr[i+1]) {
+    //             isSort = false;
+    //             break;
+    //         }
+    //     }
+    //     if(isSort) {
+    //         System.out.println("Sorted");
+    //     } else {
+    //         System.out.println("Not Sorted");
+    //     }
+    // }
+
+    //more better version : 
+    public static boolean isSorted(int []arr) {
+        for(int i =  0; i < arr.length-1; i++){
+            if(arr[i] > arr[i+1]) return false;
+        }
+        return true;
+    }
+    public static void missinNum(int []arr) {
+        int currSum = 0;
+        int N = arr[arr.length - 1];
+        int totalSum = (N * (N + 1)) / 2;
+        for(int i = 0; i < arr.length; i++){
+            currSum += arr[i];
+        }
+
+        int missing = totalSum - currSum;
+        System.out.println("Missing Number is :" + missing);
+    }
+
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -130,19 +238,54 @@ public class program {
         // frequency of each element : 
         // int arr[] ={8,4,1,2,9,1,2,2,0,2};
         // frequencyOfEle(arr);
+        // ----------------------------------------------
         // Count elements greater than X :
         // count(arr, 2);
+        // ----------------------------------------------
         // Reverse array  :
         // Two pointers --> 
-        int []arr = {1,2,3,4,5};
-        reverseArr2ptr(arr);
-        for(int i : arr){
-            System.out.println(i);
-        }
+        // int []arr = {1,2,3,4,5};
+        // reverseArr2ptr(arr);
+        // for(int i : arr){
+        //     System.out.println(i);
+        // }
         // reverseArr(arr);
         // for(int i : arr){
         //     System.out.println(i);
         // }
+        // ----------------------------------------------
+        // 17 october 2025 :
+        // Rotation of array to the right by k position :
+        // int []arr = {1,2,3,4,5,6,7};
+        // rotationRight(arr, 2);
+        // Rotation of array to the left by k position :
+        // rotationLeft(arr,2);
+        // ----------------------------------------------
+        // Move all zeros to end :
+        // int []arr = {8,4,0,1,1,0,0,5,3};
+        // zeroToEnd(arr);
+        //----------------------------------------------------
+        // Separate positive and negative :
+        // int arr[] = {8,-4,-1,2,9,1,0,0,-2,-2,0,2};
+        // separation(arr);
+        //----------------------------------------------------
+        // Check if array is sorted :
+        // int []arr = {1,3,4,5};
+        // boolean res = isSorted(arr);
+        //  if(res) {
+        //     System.out.println("Sorted");
+        // } else {
+        //     System.out.println("Not Sorted");
+        // }
+//----------------------------------------------------
+//  Find missing number (1 to N):
+// int arr[] = {1,2,4,5,6,7};
+// missinNum(arr);
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------
+//----------------------------------------------------                
+//----------------------------------------------------
 
         
 
