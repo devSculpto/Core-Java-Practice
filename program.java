@@ -238,6 +238,37 @@ public class program {
         //     }
         // }
 
+        public static void pairofNum(int []arr, int target) {
+            for(int i = 0; i < arr.length; i++){
+                for(int j = i+1; j < arr.length; j++){
+                    if(arr[i] + arr[j] == target) {
+                        System.out.println("index of numbers :"+ i + " and "+ j);
+                        return; // it will exit whole funtion after 
+                        // got first pairs 
+                    }
+                }
+            }
+        }
+        //TC : O(n2) (loops inside a loop)
+        //SC : 0(1) constant space 
+
+        // public static void pairsofNumMaxSum(int []arr){ //1,-4,7,8,10
+        //     int maxSum = Integer.MIN_VALUE;
+        //     for(int i = 0; i < arr.length; i++){//1
+        //         int currSum = 0;
+        //         for(int j = i+1; j < arr.length; j++){ //-4
+        //               currSum+= (arr[i] + arr[j]); //-3,
+        //               System.out.println(currSum);
+        //           }
+        //              if(currSum > maxSum) {
+        //                 maxSum = currSum;//-3
+        //               }
+        //     }
+        //     System.out.println("Max sum of two numbers :"+ maxSum);
+        // }
+
+        //remaining 
+
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -324,7 +355,18 @@ public class program {
 
         // int []arr1 = {4,5,6,7,8,9};
         // int []arr2= {11,13,18};
-        // mergeSortedArr(arr1,arr2);
+        // mergeSortedArr(arr1,arr2); //remaining 
+
+        // Two Sum (find pair with sum) : 
+
+        // int []nums = {1, 3, 11, 15,10,2,45,7};
+        // int target = 9;
+        // pairofNum(nums, target);
+
+        // Find pair with maximum sum  :
+        // int [] arr = {1,-4,7,8,10};
+        // pairsofNumMaxSum(arr); //remaining
+
  
 
 
