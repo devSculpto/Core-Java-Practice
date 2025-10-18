@@ -209,6 +209,35 @@ public class program {
         System.out.println("Missing Number is :" + missing);
     }
 
+        public static void rmvDuplicate(int []arr) { //1,2,3,3,4
+            boolean []isDuplicate = new boolean[arr.length];
+            for( int i = 0; i < arr.length; i++){
+                for(int j = i+1; j < arr.length; j++){
+                    if(arr[i] == arr[j]) isDuplicate[j] = true;
+                }
+            } 
+            for(int i = 0; i < arr.length; i++){
+                if(isDuplicate[i]) continue;
+                System.out.println(arr[i]);
+            }
+            
+        }
+        // TC : O(n2)
+        // SC : O(n)
+        //In-eficient since it will iterate all element even though they are 
+        // unique,since i am practicing with some challenge i.e solving only 
+        // loop and if else 
+
+        // public static void mergeSortedArr(int []arr1, int []arr2) {
+        //     int []newArr = new int[arr1.length + arr2.length];
+        //     int j = 0;
+        //     for(int i = 0; i < newArr.length;i++){
+        //         if(arr1[j] > arr2[j]) {
+        //             newArr[i] = 
+        //         }
+        //     }
+        // }
+
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -253,8 +282,11 @@ public class program {
         // for(int i : arr){
         //     System.out.println(i);
         // }
-        // ----------------------------------------------
-        // 17 october 2025 :
+
+        // ===============================================================
+                // 17 october 2025 :
+        // ===============================================================
+
         // Rotation of array to the right by k position :
         // int []arr = {1,2,3,4,5,6,7};
         // rotationRight(arr, 2);
@@ -277,10 +309,39 @@ public class program {
         // } else {
         //     System.out.println("Not Sorted");
         // }
-//----------------------------------------------------
-//  Find missing number (1 to N):
-// int arr[] = {1,2,4,5,6,7};
-// missinNum(arr);
+        //----------------------------------------------------
+        //  Find missing number (1 to N):
+        // int arr[] = {1,2,4,5,6,7};
+        // missinNum(arr); 
+        // ===============================================================
+            // 18 october 2025 :
+        // ===============================================================
+        // Remove duplicate elements :
+        //  int []arr = {1,2,2,2,2,3,4};
+        //  rmvDuplicate(arr);
+        //  --------------------------------------
+        // Merge Two Sorted Arrays :
+
+        // int []arr1 = {4,5,6,7,8,9};
+        // int []arr2= {11,13,18};
+        // mergeSortedArr(arr1,arr2);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //----------------------------------------------------
 //----------------------------------------------------
 //----------------------------------------------------
