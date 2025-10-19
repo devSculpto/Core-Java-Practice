@@ -1,3 +1,4 @@
+import java.util.*;
 public class program {
     
     public static void occurenceOfNum(int []arr, int key){
@@ -228,15 +229,19 @@ public class program {
         // unique,since i am practicing with some challenge i.e solving only 
         // loop and if else 
 
-        // public static void mergeSortedArr(int []arr1, int []arr2) {
-        //     int []newArr = new int[arr1.length + arr2.length];
-        //     int j = 0;
-        //     for(int i = 0; i < newArr.length;i++){
-        //         if(arr1[j] > arr2[j]) {
-        //             newArr[i] = 
-        //         }
-        //     }
-        // }
+        public static void mergeSortedArr(int []arr1, int []arr2) {
+            int []newArr = new int[arr1.length + arr2.length];
+            int i = 0;
+            int j = 0;
+            int small = Integer.MAX_VALUE;
+            for(int k = 0; k < newArr.length; k++){
+                 if(arr1[i] < small || arr2[i] < small){
+
+                 }
+            }
+
+            
+        }
 
         public static void pairofNum(int []arr, int target) {
             for(int i = 0; i < arr.length; i++){
@@ -269,6 +274,60 @@ public class program {
 
         //remaining 
 
+        public static void kadanesAlgo(int []arr){
+            int cs = 0;
+            int ms = Integer.MIN_VALUE;
+            for(int i = 0; i < arr.length; i++){
+                cs+= arr[i]; //-2,-3, 4, 4-1=3,3-2=1,1+1=2,2+5=7,7-3=4
+                if(cs < 0) {
+                    cs = 0; 
+                }
+                  ms = Math.max(cs, ms);
+            }
+            System.out.println("max :"+ ms);
+    }
+
+    public static void maxSumArrSum(int []arr) {
+        int ms = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++){// 2
+            for(int j = i; j < arr.length; j++){ //2 4 6 8 10
+                int cs = 0;
+                for(int k = i; k <=j; k++){
+                    System.out.print(arr[k]+" ");
+                    cs+= arr[k];
+                }
+                System.out.println("--> cs :"+ cs);
+                if(cs > ms ) {
+                    ms = cs;
+                }
+                System.out.println();
+            }
+            System.out.println();
+        }
+        System.out.println("Max sum of a subarray :" + ms);
+    }
+
+
+    public static void printSubArr(int []arr) {
+           for(int i = 0; i < arr.length; i++) {
+            for(int j = i; j < arr.length; j++){
+                for(int k= i; k <= j; k++){
+                    System.out.print(arr[k] + " ");
+                }
+                System.out.println();
+            }
+            System.out.println();
+           }
+    }
+
+    public static void pairsOfArrays(int []arr){
+            for(int i = 0; i < arr.length; i++){
+                for(int j = i+1; j < arr.length; j++){
+                    System.out.println(arr[i]+ " " + arr[j]);
+                }
+                System.out.println();
+            }
+    }
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -366,6 +425,17 @@ public class program {
         // Find pair with maximum sum  :
         // int [] arr = {1,-4,7,8,10};
         // pairsofNumMaxSum(arr); //remaining
+        // ==================================================
+        // 19 October 25
+        // ==================================================
+        // Max Subarrays Sum (Kadens Aldo) :
+        // int []arr = {-2, -3, 4, -1, -2,1,5,-3};
+        // kadanesAlgo(arr);
+        // maxSumArrSum(arr);
+        
+        // int [] arr = {2, 4, 6, 8,10};
+        // printSubArr(arr);
+        // pairsOfArrays(arr);
 
  
 
