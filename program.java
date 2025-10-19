@@ -289,6 +289,8 @@ public class program {
 
     public static void maxSumArrSum(int []arr) {
         int ms = Integer.MIN_VALUE;
+        int x = 0;
+        int y = 0;
         for(int i = 0; i < arr.length; i++){// 2
             for(int j = i; j < arr.length; j++){ //2 4 6 8 10
                 int cs = 0;
@@ -296,8 +298,10 @@ public class program {
                     System.out.print(arr[k]+" ");
                     cs+= arr[k];
                 }
-                System.out.println("--> cs :"+ cs);
+                // System.out.println("--> cs :"+ cs);
                 if(cs > ms ) {
+                    x = i;
+                    y = j;
                     ms = cs;
                 }
                 System.out.println();
@@ -305,6 +309,10 @@ public class program {
             System.out.println();
         }
         System.out.println("Max sum of a subarray :" + ms);
+        System.out.println("Subarray :");
+        for(int i = x; i <= y; i++){
+            System.out.print(arr[i]+ " ");
+        }
     }
 
 
@@ -327,6 +335,16 @@ public class program {
                 }
                 System.out.println();
             }
+    }  
+    public static void pairSum(int []arr, int target){
+         for(int i = 0; i < arr.length; i++){
+            for(int j = i+1; j < arr.length; j++){
+                if(arr[i] + arr[j] == target) {
+                    System.out.println(arr[i] + " " + arr[j]);
+                    return;
+                }
+            }
+        }
     }
     public static void main(String [] args){
         //Count occurrences of a number :
@@ -414,7 +432,7 @@ public class program {
 
         // int []arr1 = {4,5,6,7,8,9};
         // int []arr2= {11,13,18};
-        // mergeSortedArr(arr1,arr2); //remaining 
+        // mergeSortedArr(arr1,arr2);                     //remaining 
 
         // Two Sum (find pair with sum) : 
 
@@ -424,10 +442,11 @@ public class program {
 
         // Find pair with maximum sum  :
         // int [] arr = {1,-4,7,8,10};
-        // pairsofNumMaxSum(arr); //remaining
+        // pairsofNumMaxSum(arr);                         //remaining
         // ==================================================
         // 19 October 25
         // ==================================================
+        //Revison(Learnt it before)
         // Max Subarrays Sum (Kadens Aldo) :
         // int []arr = {-2, -3, 4, -1, -2,1,5,-3};
         // kadanesAlgo(arr);
@@ -436,6 +455,11 @@ public class program {
         // int [] arr = {2, 4, 6, 8,10};
         // printSubArr(arr);
         // pairsOfArrays(arr);
+
+        // Two Sum (Find Pair with Given Sum) :
+        int []arr ={-3, 1, 4, 7, 10};
+        pairSum(arr, 7);
+
 
  
 
