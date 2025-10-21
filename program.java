@@ -346,6 +346,21 @@ public class program {
             }
         }
     }
+
+    public static void isPalindromArr(int []arr) {
+        boolean isPalin = true;
+       for(int i = 0; i < arr.length/2; i++){
+        if(arr[i] != arr[arr.length - 1 - i]) {
+                   isPalin = false;
+                   break;
+        }
+       }
+       if(isPalin) {
+        System.out.println("Arr is Palindrom!");
+       } else {
+         System.out.println("Arr is not a Palindrom!");
+       }
+    }
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -457,9 +472,17 @@ public class program {
         // pairsOfArrays(arr);
 
         // Two Sum (Find Pair with Given Sum) :
-        int []arr ={-3, 1, 4, 7, 10};
-        pairSum(arr, 7);
+        // int []arr ={-3, 1, 4, 7, 10};
+        // pairSum(arr, 7);
+        // ==================================================
+        // 20 October 25
+        // ==================================================
+        // Check if array is palindrome :
+        // int []arr = {1,6,3,6,1}; //even numners
+        // isPalindromArr(arr);
 
+        //conclusion : This is 20th october changed, i forgot to push it
+        //on github 
 
  
 
