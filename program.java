@@ -361,6 +361,107 @@ public class program {
          System.out.println("Arr is not a Palindrom!");
        }
     }
+
+        public static void linearSearch(int []arr, int target) {
+        int j = 0;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target) {
+                j = i;
+                break;
+            }
+        }
+        System.out.println("Target found at "+ j + " index");
+    }
+    public static void secondLargest1(int []arr) {
+        int firstLarge = Integer.MIN_VALUE;
+        int secondLarge = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > firstLarge) {
+                firstLarge = arr[i];
+            }
+        }
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > secondLarge && arr[i] != firstLarge) {
+                secondLarge = arr[i];
+            }
+        }
+        System.out.println("First large "+ firstLarge);
+        System.out.println("Second large "+ secondLarge);
+    } 
+    // not the best but good for beginners
+    //Conclusion : TC : O(2n) since only 1 loop has used
+    // SC: O(1) since no extra space/memory used 
+    public static void secondLargest2(int []arr) {
+        int firstLarge = Integer.MIN_VALUE;
+        int secondLarge = Integer.MIN_VALUE;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] > firstLarge) {
+                secondLarge = firstLarge;
+                firstLarge = arr[i];
+            } else if(arr[i] > secondLarge && arr[i] < firstLarge) {
+                secondLarge = arr[i];
+            }
+        }
+        System.out.println("First large "+ firstLarge);
+        System.out.println("Second large "+ secondLarge);
+    }
+    //More better version 
+    //Conclusion : TC : O(2n) since, 2 loop has used
+    // SC: O(1) since no extra space/memory used 
+
+    public static void reverseArr(int []arr) {
+        int left = 0; 
+        int right = arr.length-1;
+        while(left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] =temp;
+            left++;
+            right--;
+
+        }
+    }
+    // public static void rotateArr(int []nums,int k){
+    //     int n = nums.length;
+    //     k = k % n; //normalize k
+    //     for(int m = 1; m <= k; m++){
+    //         int temp = nums[n-1];//kept last ele stored
+    //         for(int i = 0; i < n-1; i++){//shift to position right 
+    //         nums[ (n-1) - i] = nums[ (n -1)  - (i+1)];
+    //         }
+    //         nums[0] = temp;
+    //     }
+        
+    // }
+    //conclusion : it tool almost 30 minutes but finally
+    // i have made ,even though it is worst algo,
+    //i am gratefull that alteast i did it by my self
+
+    public static void rotateArr(int []nums, int k){
+        int n = nums.length;
+        int []newArr = new int[n];
+        k = k % n;
+        int j = 0;
+        for(int i = n - k; i < n; i++) {
+            newArr[j]= nums[i];//0 1 = 4 5
+            j++;
+        }
+
+        for(int i = 0; i < n - k; i++) {
+            newArr[j]= nums[i];// 2 3 4 =  1 2 3
+            j++;
+        }
+        for(int b= 0; b < newArr.length; b++){
+            nums[b] = newArr[b];
+        }
+        for( int b : nums) {
+            System.out.println(b);
+        } 
+}
+
+//conclusion : stills better version of previos since change take place 
+// in og arrays , and accepted submisison on leetcode
+    
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -482,7 +583,37 @@ public class program {
         // isPalindromArr(arr);
 
         //conclusion : This is 20th october changed, i forgot to push it
-        //on github 
+        //on github
+// =======================================================
+        // 21 October 2025 :
+// =======================================================
+        //Q1 : 
+    //  int []marks = {45,60,20,55,70,10};
+    //  for(int i =0; i < marks.length; i++){
+    //     if(marks[i] < 35) {
+    //         System.out.println("at index : "+ i + " the marks is less than 35");
+    //     }
+    //  }
+
+    // Q5 : 
+    int arr[] = {1,2,3,4,5};
+    // linearSearch(arr, 10);
+
+    // secondLargest1(arr);
+    // secondLargest2(arr);
+    // reverseArr(arr); //Two Pointer approach 
+    // System.out.println("After calling reverse Arrays methods: ");
+    // for(int i : arr) {
+    //     System.out.println(i);
+    // }
+
+
+    rotateArr(arr, 7);
+    System.out.println("After methods called");
+        for(int i : arr) {
+        System.out.println(i);
+    }
+    
 
  
 
