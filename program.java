@@ -347,20 +347,20 @@ public class program {
         }
     }
 
-    public static void isPalindromArr(int []arr) {
-        boolean isPalin = true;
-       for(int i = 0; i < arr.length/2; i++){
-        if(arr[i] != arr[arr.length - 1 - i]) {
-                   isPalin = false;
-                   break;
-        }
-       }
-       if(isPalin) {
-        System.out.println("Arr is Palindrom!");
-       } else {
-         System.out.println("Arr is not a Palindrom!");
-       }
-    }
+    // public static void isPalindromArr(int []arr) {
+    //     boolean isPalin = true;
+    //    for(int i = 0; i < arr.length/2; i++){
+    //     if(arr[i] != arr[arr.length - 1 - i]) {
+    //                isPalin = false;
+    //                break;
+    //     }
+    //    }
+    //    if(isPalin) {
+    //     System.out.println("Arr is Palindrom!");
+    //    } else {
+    //      System.out.println("Arr is not a Palindrom!");
+    //    }
+    // }
 
         public static void linearSearch(int []arr, int target) {
         int j = 0;
@@ -409,18 +409,18 @@ public class program {
     //Conclusion : TC : O(2n) since, 2 loop has used
     // SC: O(1) since no extra space/memory used 
 
-    public static void reverseArr(int []arr) {
-        int left = 0; 
-        int right = arr.length-1;
-        while(left < right) {
-            int temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] =temp;
-            left++;
-            right--;
+    // public static void reverseArr(int []arr) {
+    //     int left = 0; 
+    //     int right = arr.length-1;
+    //     while(left < right) {
+    //         int temp = arr[left];
+    //         arr[left] = arr[right];
+    //         arr[right] =temp;
+    //         left++;
+    //         right--;
 
-        }
-    }
+    //     }
+    // }
     // public static void rotateArr(int []nums,int k){
     //     int n = nums.length;
     //     k = k % n; //normalize k
@@ -462,6 +462,17 @@ public class program {
 //conclusion : stills better version of previos since change take place 
 // in og arrays , and accepted submisison on leetcode
     
+// -------------------------------------------------------------------------------------------
+  public static boolean isPalindromeNum(int num) {
+        int reverseHalf = 0;
+        if(num < 0 ||(num != 0 && num % 10 == 0)) return false;
+             while(reverseHalf < num) {
+                int lastDigit = num % 10;
+                num = num / 10;
+                reverseHalf = (reverseHalf * 10) + lastDigit;
+             }
+        return reverseHalf == num || (num == reverseHalf / 10);
+    }
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -607,12 +618,18 @@ public class program {
     //     System.out.println(i);
     // }
 
-
+// =======================================================
+        // 22 October 2025 :
+// =======================================================
     rotateArr(arr, 7);
     System.out.println("After methods called");
         for(int i : arr) {
         System.out.println(i);
     }
+
+    boolean  result = isPalindromeNum(1221);
+    System.out.println(result);
+
     
 
  
