@@ -473,6 +473,49 @@ public class program {
              }
         return reverseHalf == num || (num == reverseHalf / 10);
     }
+
+
+
+    public static int removeUniqueEle(int []arr, int target) {
+        int j = 0;
+            for(int i = 0; i < arr.length; i++){
+                if(arr[i] != target) {
+                    arr[j] = arr[i];
+                    j++;
+                }
+            }
+        return j;
+    }
+
+
+    public static String longestCommonPrefix(String[] strs) { // String []strs = {"flow  er","flow","flig  ht"};
+        int minLen = Integer.MAX_VALUE;
+        for(int i = 0; i < strs.length; i++){
+            if(strs[i].length() < minLen) {
+                minLen = strs[i].length();
+            }
+        }
+    
+        String commonStr = "";
+
+        //correct til here 
+        for(int k = 1; k <strs.length; k++){
+            boolean allMatch = false; 
+            int l = 0;
+             for(l = 0; l < minLen; l++){
+                if(strs[0].charAt(l) == strs[k].charAt(l)){
+                allMatch = true;
+
+                }
+                
+             }
+             if(allMatch) {
+                      commonStr += strs[0].charAt(l);
+                }
+            }
+        System.out.println(commonStr);
+        return commonStr;
+    }
     public static void main(String [] args){
         //Count occurrences of a number :
         // int arr[] ={8,-4,1,2,9,-1,2,2,0,2};
@@ -607,7 +650,7 @@ public class program {
     //  }
 
     // Q5 : 
-    int arr[] = {1,2,3,4,5};
+    // int arr[] = {1,2,3,4,5};
     // linearSearch(arr, 10);
 
     // secondLargest1(arr);
@@ -621,14 +664,22 @@ public class program {
 // =======================================================
         // 22 October 2025 :
 // =======================================================
-    rotateArr(arr, 7);
-    System.out.println("After methods called");
-        for(int i : arr) {
-        System.out.println(i);
-    }
+    // rotateArr(arr, 7);
+    // System.out.println("After methods called");
+    //     for(int i : arr) {
+    //     System.out.println(i);
+    // }
 
-    boolean  result = isPalindromeNum(1221);
-    System.out.println(result);
+    // boolean  result = isPalindromeNum(1221);
+    // System.out.println(result);
+// =======================================================
+        // 23 October 2025 :
+// =======================================================
+    // int []cgpa = {3, 2, 2, 3};
+    // int result =removeUniqueEle(cgpa, 3);
+    // System.out.println("Non-val elements : "+ result);
+    String []strs = {"flower","flow","flight"};
+    longestCommonPrefix(strs);
 
     
 
